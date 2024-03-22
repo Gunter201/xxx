@@ -6,14 +6,13 @@ import tritonclient.http as httpclient
 from qdrant_client import QdrantClient
 app = FastAPI()
 
-triton_host = os.getenv("TRITON_HOST")
-qdrant_host = os.getenv("QDRANT_HOST")
+triton_host = os.getenv("TRITON_HOST") or "triton"
+qdrant_host = os.getenv("QDRANT_HOST") or "qdrant"
 triton_http_endpoint = triton_host + ":8000"
 triton_grpc_endpoint = triton_host + ":8001"
 
 triton_client = httpclient.InferenceServerClient(url=triton_http_endpoint)
-qdrant_client = QdrantClient(qdrant_host, port=os.getenv("QDRANT_PORT"))
-
+qdrant_client = QdrantClient(qdrant_host, port=os.getenv("QDRANT_PORT") or 6333)
 def vgg16_preprocess(img_path):
     img = Image.open(img_path)
     preprocess = transforms.Compose([
@@ -39,6 +38,3 @@ async def compare(f: UploadFile = File(...)):
         result = qdrant_client.search(output_vector)
         result = [vector.payload for vector in result]
     return {'payload': result}
-
-if __name__ == '__main__':
-    app.run()

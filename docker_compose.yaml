@@ -3,7 +3,7 @@ services:
   triton:
     image: nvcr.io/nvidia/tritonserver:23.12-py3
     volumes:
-      - ${PWD}/server/model_repository:/models
+      - D:/image-search-engine/server/model_repository/:/models
     ports:
       - "8000:8000"
       - "8001:8001"
