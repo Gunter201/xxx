@@ -9,7 +9,7 @@ PATH = "D:\\image-search-engine\\local\\data\\feature"
 client = QdrantClient(host="localhost", port=6333)
 if not client.collection_exists("image-search"):
     client.create_collection("image-search",
-                            vectors_config=VectorParams(size=4, distance=Distance.EUCLID))
+                            vectors_config=VectorParams(size=4096, distance=Distance.EUCLID))
 
 for index, vector_path in tqdm(enumerate(os.listdir(PATH)), unit="vector", desc="Push vector to database"):
     embedding_vector = np.load(os.path.join(PATH, vector_path))

@@ -1,0 +1,188 @@
+body {
+    margin:0;
+    padding:0;
+    background-color: rgb(235, 241, 248);
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+/* header */
+.header {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(3, 115, 221);
+    text-align: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    z-index: 999;
+}
+.header-text {
+    color: white;
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.dragdrop {
+    width: 100%;
+    min-height: 100vh;
+    display:  flex;
+    align-items:  center;
+    justify-content: center;
+}
+.label-container{
+    display: flex;
+    position: fixed;
+    width: 50%;
+    height: 70%;
+}
+#dragdrop-area {
+    border: 2px solid black;
+    border-radius: 50px;
+    width: 50%;
+    height: 70%;
+    padding: 30px;
+    text-align: center;
+    z-index: 1;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.3s ease;
+} 
+#dragdrop-area :hover {
+    background-color: #e9f5f8;
+}
+#drop-zone-border {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    border: 2px dashed #bbb5ff;
+    background: #f7f8ff;
+}
+
+#drop-zone-area {
+    margin-top: 8%;
+    margin-bottom: 8%;
+}
+#upload-cloud {
+    width: 20%;
+    height: 20%;
+}
+#drop-zone-area span {
+    display: block;
+    font-size: 12px;
+    color: rgb(161, 159, 159);
+    margin-top: 15px
+}
+#drop-zone-area img {
+    margin-bottom: 2vh;
+}
+
+.user-input-img-container {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    background-color: azure;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2rem;
+    align-items:  center;
+    border-radius: 30px;
+    padding-bottom: 8vh;
+}
+
+.user-output-img-area {
+    display: flex;
+    margin-top: 8vh;
+    justify-content: center;
+    flex-direction: column;
+}
+#user-input-title{
+    margin-bottom: 8vh;
+}
+
+.user-img {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+#user-output-img {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    /* flex-wrap: wrap; */
+}
+#user-input-title {
+    margin-top: 30px;
+}
+.user-title {
+    text-align: center;
+}
+
+#super-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px
+}
+
+
+@import url('https://fonts.cdnfonts.com/css/valonik-personal-use');
+.user-title {
+    font-size: 40px;
+    font-weight: bold;
+}
+#upload-cloud {
+    width: 100px;
+    height: 100px;
+}
+.split-line{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(0, 0, 0);
+    margin-top: 10vh;
+}
+
+/* css to js */
+.text-score {
+    font-size: 25px;
+    font-weight: bold;
+}
+.text-name{
+    font-size: 18px;
+}
+.text-id{
+    font-size: 23px;
+}
+
+/* loader */
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 100vh; /* Adjust as needed */
+}
+
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    clip-path: inset(0 3ch 0 0);
+    animation: l4 1s steps(4) infinite;
+}
+
+.loader:before {
+    content: "Loading...";
+}
+
+@keyframes l4 {
+    to {
+        clip-path: inset(0 -1ch 0 0);
+    }
+}
